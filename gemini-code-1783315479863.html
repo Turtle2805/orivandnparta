@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra Tương Tác - Ms Lê Hằng English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatPattern {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 100px 100px, 50px 50px; }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #8854C0, #FDCB6E, #00C9A7, #FF7675);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M9 26c1.2 0 2.1-.4 2.8-1.2.8-.7 1.2-1.7 1.2-2.8 0-1.2-.4-2.1-1.2-2.8C11.1 18.4 10.2 18 9 18c-1.2 0-2.1.4-2.8 1.2-.8.7-1.2 1.7-1.2 2.8 0 1.2.4 2.1 1.2 2.8C6.9 25.6 7.8 26 9 26zm30 0c1.2 0 2.1-.4 2.8-1.2.8-.7 1.2-1.7 1.2-2.8 0-1.2-.4-2.1-1.2-2.8-.7-.8-1.7-1.2-2.8-1.2-1.2 0-2.1.4-2.8 1.2-.8.7-1.2 1.7-1.2 2.8 0 1.2.4 2.1 1.2 2.8.7.8 1.7 1.2 2.8 1.2zM24 48c1.2 0 2.1-.4 2.8-1.2.8-.7 1.2-1.7 1.2-2.8 0-1.2-.4-2.1-1.2-2.8-.7-.8-1.7-1.2-2.8-1.2-1.2 0-2.1.4-2.8 1.2-.8.7-1.2 1.7-1.2 2.8 0 1.2.4 2.1 1.2 2.8.7.8 1.7 1.2 2.8 1.2z' fill='%23ffffff' fill-opacity='0.8' fill-rule='evenodd'/%3E%3C/svg%3E"), 
+                            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffffff' fill-opacity='0.6'%3E%3Cpath d='M10 15h4v4h-4zm20 30h4v4h-4zm40-20h4v4h-4zM20 70h4v4h-4z'/%3E%3Cpath d='M9.5 10.5l3 3m-3 0l3-3m57.5 17.5l3 3m-3 0l3-3M26.5 42.5l3 3m-3 0l3-3' stroke='%23fff' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E");
+            animation: floatPattern 25s linear infinite;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .header-panel {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px;
+            border-radius: 18px;
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: 3px solid #8854C0;
+        }
+
+        .header-panel h1 {
+            font-size: 14pt;
+            color: #8854C0;
+            margin: 0;
+            font-weight: 900;
+        }
+
+        .alert-box {
+            background-color: #FFF3CD;
+            border: 3px solid #FFEBAA;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 0 #E6B800;
+            text-align: center;
+            color: #856404;
+        }
+
+        .alert-box h2 {
+            margin: 0 0 8px 0;
+            font-size: 13pt;
+            font-weight: 900;
+            color: #D35400;
+        }
+
+        .alert-box p {
+            margin: 5px 0;
+            font-size: 10.5pt;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.06);
+            border: 3px solid #F1F2F6;
+            transition: transform 0.3s ease;
+        }
+
+        .question-text {
+            font-size: 11.5pt;
+            color: #2C3E50;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            background: #FFFFFF;
+            border: 3px solid #E4E7EB;
+            border-radius: 15px;
+            padding: 12px 18px;
+            font-size: 11pt;
+            font-weight: 700;
+            color: #4A5568;
+            text-align: left;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #E4E7EB;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .option-btn:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 6px 0 #E4E7EB;
+            background-color: #F8FAFC;
+        }
+
+        .option-btn.correct {
+            background-color: #00D26A !important;
+            border-color: #00A855 !important;
+            color: white !important;
+            box-shadow: 0 4px 0 #00A855 !important;
+        }
+
+        .option-btn.wrong {
+            background-color: #FF4757 !important;
+            border-color: #D63031 !important;
+            color: white !important;
+            box-shadow: 0 4px 0 #D63031 !important;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        .shake-animation {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        .explanation-box {
+            display: none;
+            margin-top: 15px;
+            background: #F8FAFC;
+            border-left: 6px solid #00C9A7;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .explanation-title {
+            font-weight: 900;
+            color: #00C9A7;
+            margin-bottom: 8px;
+            font-size: 11pt;
+        }
+
+        .explanation-step {
+            font-size: 10pt;
+            color: #4A5568;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        
+        .explanation-step strong {
+            color: #2D3748;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin: 35px 0 50px 0;
+        }
+
+        .btn-submit {
+            background: #FDCB6E;
+            color: #2C3E50;
+            font-size: 14pt;
+            font-weight: 900;
+            padding: 12px 45px;
+            border: 4px solid #E6A115;
+            border-radius: 22px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #E6A115;
+            transition: all 0.1s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #E6A115;
+        }
+
+        .modal-result {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-result-content {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            border: 4px solid #00C9A7;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal-score {
+            font-size: 28pt;
+            font-weight: 900;
+            color: #00C9A7;
+            margin: 12px 0;
+        }
+
+        .modal-comment {
+            font-size: 11.5pt;
+            font-weight: 700;
+            color: #4A5568;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .modal-close-btn {
+            background: #00C9A7;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 11pt;
+            font-weight: 900;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #009E82;
+        }
+
+        #confetti-canvas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="container">
+        <div class="header-panel">
+            <h1>Giáo viên tạo: Ms Lê Hằng English</h1>
+        </div>
+
+        <div class="alert-box">
+            <h2>⚠️ LỜI NHẮC CỰC KỲ QUAN TRỌNG ⚠️</h2>
+            <p>Chỉ có đọc kỹ giải thích ngay sau mỗi câu, sau đó ghi lại từ vựng/cấu trúc mới vào vở để học thì mới thực sự giỏi lên.</p>
+            <p>Làm cho xong mà không đọc giải thích hay đọc qua loa không ghi chép thì chỉ tốn thời gian vô ích!</p>
+            <p><strong>* Kéo tới đâu, làm tới đó! *</strong></p>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="submit-container">
+            <button class="btn-submit" onclick="submitQuiz()">NỘP BÀI XEM ĐIỂM</button>
+        </div>
+    </div>
+
+    <div class="modal-result" id="result-modal">
+        <div class="modal-result-content">
+            <div style="font-size: 35pt;">🎉</div>
+            <div style="font-weight: 900; font-size: 15pt; color: #2C3E50;">KẾT QUẢ BÀI LÀM CỦA CON</div>
+            <div class="modal-score" id="modal-score-text">0/0</div>
+            <div class="modal-comment" id="modal-comment-text">Lời nhận xét từ cô...</div>
+            <button class="modal-close-btn" onclick="closeModal()">ĐÓNG XEM LẠI BÀI</button>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                id: 1,
+                question: "The board of directors is considering _____ the merger until the market stabilizes.",
+                options: [
+                    { key: "A", text: "to postpone" },
+                    { key: "B", text: "postponing" },
+                    { key: "C", text: "to be postponed" },
+                    { key: "D", text: "postpone" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Ban giám đốc đang cân nhắc việc hoãn việc sáp nhập cho đến khi thị trường ổn định.",
+                    step2: "A. to postpone (với To-V); B. postponing (với V-ing); C. to be postponed (bị động To-V); D. postpone (V nguyên thể).",
+                    step3: "Động từ 'consider' theo sau bởi danh động từ (V-ing) khi diễn tả việc cân nhắc làm gì đó: consider + V-ing.",
+                    step4: "Loại A, C, D vì không tuân thủ cấu trúc ngữ pháp bắt buộc sau động từ 'consider'."
+                }
+            },
+            {
+                id: 2,
+                question: "After discussing the budget, the committee went on _____ the potential environmental impact of the project.",
+                options: [
+                    { key: "A", text: "to analyze" },
+                    { key: "B", text: "analyze" },
+                    { key: "C", text: "analyzing" },
+                    { key: "D", text: "to be analyzed" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Sau khi thảo luận về ngân sách, ủy ban tiếp tục phân tích tác động môi trường tiềm ẩn của dự án.",
+                    step2: "A. to analyze (phân tích tiếp việc mới); B. analyze (V nguyên thể); C. analyzing (tiếp tục việc đang làm); D. to be analyzed (bị động To-V).",
+                    step3: "Cấu trúc 'go on + to V' dùng khi một người kết thúc một việc này và chuyển sang làm một việc khác mới tiếp theo.",
+                    step4: "Loại C vì 'go on + V-ing' nghĩa là duy trì, tiếp tục làm cùng một công việc đang dang dở."
+                }
+            },
+            {
+                id: 3,
+                question: "I would much prefer _____ to the gala by my partner, but he was stuck at work, so I drove myself.",
+                options: [
+                    { key: "A", text: "to be driven" },
+                    { key: "B", text: "to have been driven" },
+                    { key: "C", text: "being driven" },
+                    { key: "D", text: "having been driven" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Tôi thích được đối tác chở đến buổi dạ tiệc hơn, nhưng anh ấy bị kẹt việc, nên tôi tự lái xe đi.",
+                    step2: "A. to be driven (được chở - bị động); B. to have been driven (quá khứ bị động); C. being driven (V-ing bị động); D. having been driven (hoàn thành bị động).",
+                    step3: "Cấu trúc 'would prefer + to V' diễn tả mong muốn cụ thể. Kết hợp ý bị động 'được chở đi bởi ai' (by my partner) ta được 'to be V3/ed'.",
+                    step4: "Loại C, D vì dùng dạng V-ing sai cấu trúc sau 'would prefer'. Loại B vì không cần nhấn mạnh thể hoàn thành."
+                }
+            },
+            {
+                id: 4,
+                question: "It is no use _____ for a promotion if you haven’t met your key performance indicators this quarter.",
+                options: [
+                    { key: "A", text: "to ask" },
+                    { key: "B", text: "ask" },
+                    { key: "C", text: "asking" },
+                    { key: "D", text: "to be asking" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Thật vô ích khi yêu cầu thăng chức nếu bạn không đạt được các chỉ số hiệu suất chính trong quý này.",
+                    step2: "A. to ask; B. ask; C. asking; D. to be asking.",
+                    step3: "Cấu trúc thành ngữ cố định kinh điển: It is no use + V-ing (Thật vô ích khi làm việc gì đó).",
+                    step4: "Loại A, B, D vì cấu trúc 'It is no use' không đi cùng động từ nguyên thể hay To-V."
+                }
+            },
+            {
+                id: 5,
+                question: "The politician finally admitted _____ by the lobbyist, which led to a massive political scandal.",
+                options: [
+                    { key: "A", text: "to be bribed" },
+                    { key: "B", text: "to bribe" },
+                    { key: "C", text: "being bribed" },
+                    { key: "D", text: "having bribed" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Chính trị gia cuối cùng đã thừa nhận đã bị mua chuộc bởi nhà vận động hành lang, điều này dẫn đến một vụ bê bối chính trị lớn.",
+                    step2: "A. to be bribed; B. to bribe; C. being bribed (bị động danh động từ); D. having bribed (chủ động hoàn thành).",
+                    step3: "Động từ 'admit + V-ing'. Xét theo ngữ cảnh có 'by' (bởi ai đó) nên hành động mang tính bị động, suy ra dạng thức đúng là 'being + V3/ed'.",
+                    step4: "Loại A, B vì dùng To-V. Loại D sai bản chất chủ động/bị động của hành động ăn hối lộ."
+                }
+            },
+            {
+                id: 6,
+                question: "The new legislation is bound _____ significant controversy among small business owners.",
+                options: [
+                    { key: "A", text: "to spark" },
+                    { key: "B", text: "sparking" },
+                    { key: "C", text: "spark" },
+                    { key: "D", text: "to be sparked" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Luật mới chắc chắn sẽ gây ra tranh cãi lớn trong giới chủ doanh nghiệp nhỏ.",
+                    step2: "A. to spark (chủ động); B. sparking; C. spark; D. to be sparked (bị động).",
+                    step3: "Cấu trúc tính từ: be bound + to V (chắc chắn, nhất định sẽ làm gì đó). Ở đây mang nghĩa chủ động khơi mào tranh cãi.",
+                    step4: "Loại B, C sai cấu trúc dạng động từ. Loại D sai thể bị động vì theo sau là tân ngữ 'significant controversy'."
+                }
+            },
+            {
+                id: 7,
+                question: "We had no choice but _____ the search for the missing hikers when the blizzard intensified.",
+                options: [
+                    { key: "A", text: "abandon" },
+                    { key: "B", text: "abandoning" },
+                    { key: "C", text: "to abandon" },
+                    { key: "D", text: "to be abandoned" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Chúng tôi không còn lựa chọn nào khác ngoài việc từ bỏ việc tìm kiếm những người đi bộ đường dài mất tích khi bão tuyết mạnh lên.",
+                    step2: "A. abandon; B. abandoning; C. to abandon; D. to be abandoned.",
+                    step3: "Cấu trúc cố định: have no choice but + to V (không có sự lựa chọn nào khác ngoài việc làm gì).",
+                    step4: "Loại A, B sai dạng động từ đi sau cụm cấu trúc thành ngữ bắt buộc này."
+                }
+            },
+            {
+                id: 8,
+                question: "After weeks of hesitation, the manager finally got around to _____ the feedback reports.",
+                options: [
+                    { key: "A", text: "review" },
+                    { key: "B", text: "to review" },
+                    { key: "C", text: "reviewing" },
+                    { key: "D", text: "to be reviewed" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Sau nhiều tuần do dự, người quản lý cuối cùng đã dành thời gian để xem xét các báo cáo phản hồi.",
+                    step2: "A. review; B. to review; C. reviewing; D. to be reviewed.",
+                    step3: "Cụm động từ: get around to + V-ing / Noun (tìm thời gian, có cơ hội làm gì đó sau một khoảng thời gian trì hoãn). Từ 'to' ở đây là giới từ.",
+                    step4: "Loại A, B, D vì không nhận biết được 'to' trong cụm từ này là giới từ đi kèm với V-ing."
+                }
+            },
+            {
+                id: 9,
+                question: "I would rather _____ the consequences myself than let the whole team take the blame.",
+                options: [
+                    { key: "A", text: "face" },
+                    { key: "B", text: "to face" },
+                    { key: "C", text: "facing" },
+                    { key: "D", text: "be faced" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Tôi thà tự mình đối mặt với hậu quả còn hơn để cả đội phải nhận lá phiếu khiển trách.",
+                    step2: "A. face (V nguyên thể); B. to face; C. facing; D. be faced (bị động).",
+                    step3: "Cấu trúc giả định sở thích: S + would rather + V (bare) + than + V (bare) (thà làm gì hơn làm gì).",
+                    step4: "Loại B, C sai dạng thức động từ. Loại D sai thể bị động không khớp với mục đích hành động đối diện chủ động."
+                }
+            },
+            {
+                id: 10,
+                question: "We regret _____ you that your application for the senior position has been unsuccessful.",
+                options: [
+                    { key: "A", text: "informing" },
+                    { key: "B", text: "to inform" },
+                    { key: "C", text: "to be informed" },
+                    { key: "D", text: "inform" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Chúng tôi rất tiếc phải thông báo với bạn rằng đơn ứng tuyển của bạn vào vị trí cấp cao đã không thành công.",
+                    step2: "A. informing (tiếc vì đã làm); B. to inform (tiếc vì sắp phải làm); C. to be informed; D. inform.",
+                    step3: "Cấu trúc: regret + to V (lấy làm tiếc khi phải báo tin xấu, thường dùng trong văn phong trang trọng trang nghiêm).",
+                    step4: "Loại A vì 'regret + V-ing' diễn tả sự hối hận vì một hành động sai lầm đã làm trong quá khứ."
+                }
+            },
+            {
+                id: 11,
+                question: "Most of the staff members object to _____ the new office regulations without prior notice.",
+                options: [
+                    { key: "A", text: "adopt" },
+                    { key: "B", text: "to adopt" },
+                    { key: "C", text: "adopting" },
+                    { key: "D", text: "being adopted" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Hầu hết các nhân viên đều phản đối việc áp dụng các quy định mới của văn phòng mà không có thông báo trước.",
+                    step2: "A. adopt; B. to adopt; C. adopting; D. being adopted.",
+                    step3: "Cấu trúc cụm động từ: object to + V-ing (phản đối, chống lại việc làm gì đó). Ở đây mang nghĩa chủ động áp dụng quy định.",
+                    step4: "Loại A, B sai quy tắc giới từ. Loại D sai thể bị động vì chủ ngữ thực hiện việc phản đối hành vi áp dụng."
+                }
+            },
+            {
+                id: 12,
+                question: "It is vital for the architect _____ the structural integrity of the bridge before construction.",
+                options: [
+                    { key: "A", text: "check" },
+                    { key: "B", text: "to check" },
+                    { key: "C", text: "checking" },
+                    { key: "D", text: "to be checked" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Điều quan trọng đối với kiến trúc sư là phải kiểm tra tính toàn vẹn cấu trúc của cây cầu trước khi xây dựng.",
+                    step2: "A. check; B. to check; C. checking; D. to be checked.",
+                    step3: "Cấu trúc tính từ giả định thông thường: It + be + adj + for somebody + to V (Ai đó làm gì như thế nào).",
+                    step4: "Loại A, C, D do không điền đúng dạng thức To-V theo công thức tính từ 'vital'."
+                }
+            },
+            {
+                id: 13,
+                question: "After hours of debate, the committee finally agreed _____ the compromise.",
+                options: [
+                    { key: "A", text: "to accept" },
+                    { key: "B", text: "accepting" },
+                    { key: "C", text: "accept" },
+                    { key: "D", text: "to be accepted" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Sau nhiều giờ tranh luận, ủy ban cuối cùng đã đồng ý chấp nhận thỏa hiệp.",
+                    step2: "A. to accept; B. accepting; C. accept; D. to be accepted.",
+                    step3: "Cấu trúc động từ nguyên bản theo sau: agree + to V (đồng ý làm điều gì đó).",
+                    step4: "Loại B, C, D vì vi phạm cấu trúc đi sau động từ 'agree'."
+                }
+            },
+            {
+                id: 14,
+                question: "I distinctly remember _____ the encrypted files on this drive, but now they are gone.",
+                options: [
+                    { key: "A", text: "to save" },
+                    { key: "B", text: "to have saved" },
+                    { key: "C", text: "save" },
+                    { key: "D", text: "saving" }
+                ],
+                correct: "D",
+                explanation: {
+                    step1: "Tôi nhớ rất rõ là đã lưu các tệp được mã hóa trên ổ đĩa này, nhưng bây giờ chúng đã biến mất.",
+                    step2: "A. to save (nhớ để làm việc gì); B. to have saved; C. save; D. saving (nhớ việc đã xảy ra).",
+                    step3: "Cấu trúc: remember + V-ing (nhớ một kỷ niệm, hành động đã thực hiện trong quá khứ). Việc lưu file đã làm rồi nên dùng V-ing.",
+                    step4: "Loại A vì 'remember + to V' dùng cho việc nhắc nhở ai đó nhớ phải làm một bổn phận trong tương lai."
+                }
+            },
+            {
+                id: 15,
+                question: "The CEO set out _____ the company’s image after the unfortunate scandal.",
+                options: [
+                    { key: "A", text: "rebuild" },
+                    { key: "B", text: "rebuilding" },
+                    { key: "C", text: "to rebuild" },
+                    { key: "D", text: "to be rebuilding" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Giám đốc điều hành đã bắt đầu lên kế hoạch xây dựng lại hình ảnh của công ty sau vụ bê bối đáng tiếc.",
+                    step2: "A. rebuild; B. rebuilding; C. to rebuild; D. to be rebuilding.",
+                    step3: "Cụm động từ hành động: set out + to V (bắt đầu một công việc, nhiệm vụ với mục tiêu, kế hoạch rõ ràng).",
+                    step4: "Loại A, B, D vì lỗi cấu trúc hình thái động từ theo sau cụm từ 'set out'."
+                }
+            },
+            {
+                id: 16,
+                question: "Our firm prides itself on _____ cutting-edge technology to solve complex problems.",
+                options: [
+                    { key: "A", text: "to utilize" },
+                    { key: "B", text: "utilize" },
+                    { key: "C", text: "utilizing" },
+                    { key: "D", text: "to utilizing" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Công ty của chúng tôi tự hào về việc sử dụng công nghệ tiên tiến để giải quyết các vấn đề phức tạp.",
+                    step2: "A. to utilize; B. utilize; C. utilizing; D. to utilizing.",
+                    step3: "Cấu trúc động từ đi kèm giới từ: pride oneself on + V-ing (tự hào về điều gì/việc gì của chính mình). Sau giới từ 'on' là danh động từ.",
+                    step4: "Loại A, B, D vì vi phạm nguyên tắc cơ bản: Động từ đi ngay sau giới từ thường có dạng V-ing."
+                }
+            },
+            {
+                id: 17,
+                question: "He was so engrossed in his work that he didn’t stop _____ lunch until it was nearly 4 PM.",
+                options: [
+                    { key: "A", text: "to be having" },
+                    { key: "B", text: "having" },
+                    { key: "C", text: "have" },
+                    { key: "D", text: "to have" }
+                ],
+                correct: "D",
+                explanation: {
+                    step1: "Anh ấy mải mê với công việc đến nỗi không dừng lại để ăn trưa cho đến khi gần 4 giờ chiều.",
+                    step2: "A. to be having; B. having (dừng hẳn việc đang làm); C. have; D. to have (dừng lại nhằm mục đích ăn).",
+                    step3: "Cấu trúc: stop + to V (dừng hành động hiện tại lại để thực hiện một hành động khác có mục đích cụ thể).",
+                    step4: "Loại B vì 'stop + V-ing' nghĩa là bỏ hẳn hoặc chấm dứt hành động ăn trưa, không đúng ý nghĩa câu."
+                }
+            },
+            {
+                id: 18,
+                question: "The witness denied _____ any involvement in the fraudulent transactions.",
+                options: [
+                    { key: "A", text: "to have" },
+                    { key: "B", text: "having" },
+                    { key: "C", text: "to be having" },
+                    { key: "D", text: "have" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Nhân chứng phủ nhận việc có bất kỳ sự liên quan nào đến các giao dịch gian lận.",
+                    step2: "A. to have; B. having; C. to be having; D. have.",
+                    step3: "Cấu trúc động từ phủ định: deny + V-ing (phủ nhận đã làm việc gì đó).",
+                    step4: "Loại A, C, D vì sai cấu trúc ngữ pháp đi sau từ 'deny'."
+                }
+            },
+            {
+                id: 19,
+                question: "It is worth _______ the historical documents carefully before making a final decision.",
+                options: [
+                    { key: "A", text: "to study" },
+                    { key: "B", text: "study" },
+                    { key: "C", text: "studying" },
+                    { key: "D", text: "to be studied" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Rất đáng để nghiên cứu kỹ các tài liệu lịch sử trước khi đưa ra quyết định cuối cùng.",
+                    step2: "A. to study; B. study; C. studying; D. to be studied.",
+                    step3: "Cấu trúc tính từ đặc biệt: be worth + V-ing (đáng để làm việc gì đó).",
+                    step4: "Loại A, B, D vì cấu trúc 'worth' không sử dụng dạng động từ nguyên thể hay hệ To-V."
+                }
+            },
+            {
+                id: 20,
+                question: "You are supposed _____ the project proposal by yesterday; why is it still unfinished?",
+                options: [
+                    { key: "A", text: "have finished" },
+                    { key: "B", text: "finishing" },
+                    { key: "C", text: "to have finished" },
+                    { key: "D", text: "to finish" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Đáng lẽ ra bạn phải hoàn thành đề xuất dự án trước ngày hôm qua; tại sao nó vẫn chưa xong?",
+                    step2: "A. have finished; B. finishing; C. to have finished (đáng lẽ đã phải làm xong); D. to finish.",
+                    step3: "Cấu trúc: be supposed + to V. Tuy nhiên ở đây có trạng từ 'by yesterday' (trước ngày hôm qua) chỉ việc trong quá khứ, nên dùng thể hoàn thành 'to have + V3/ed' để diễn tả một bổn phận đáng lẽ phải làm xong nhưng thực tế chưa làm.",
+                    step4: "Loại D vì 'to finish' chỉ hướng tương lai, không khớp mốc thời gian ngày hôm qua 'yesterday'."
+                }
+            },
+            {
+                id: 21,
+                question: "The renovation project involves _____ the entire electrical system of the building.",
+                options: [
+                    { key: "A", text: "overhauling" },
+                    { key: "B", text: "to overhaul" },
+                    { key: "C", text: "overhaul" },
+                    { key: "D", text: "to be overhauled" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Dự án cải tạo bao gồm việc kiểm tra sửa chữa toàn bộ hệ thống điện của tòa nhà.",
+                    step2: "A. overhauling; B. to overhaul; C. overhaul; D. to be overhauled.",
+                    step3: "Cấu trúc động từ đặc tính liên quan: involve + V-ing (bao gồm, liên quan đến việc gì).",
+                    step4: "Loại B, C, D vì không tuân thủ quy tắc chia động từ theo sau cấu trúc của từ 'involve'."
+                }
+            },
+            {
+                id: 22,
+                question: "I don’t anticipate _____ any major difficulties in implementing the new software.",
+                options: [
+                    { key: "A", text: "to encounter" },
+                    { key: "B", text: "encountering" },
+                    { key: "C", text: "encounter" },
+                    { key: "D", text: "to be encountered" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Tôi không lường trước được việc sẽ gặp phải bất kỳ khó khăn lớn nào trong việc triển khai phần mềm mới.",
+                    step2: "A. to encounter; B. encountering; C. encounter; D. to be encountered.",
+                    step3: "Cấu trúc động từ dự báo trước: anticipate + V-ing (lường trước, đoán trước việc gì).",
+                    step4: "Loại A, C, D vì sai dạng thức ngữ pháp bắt buộc đi sau động từ 'anticipate'."
+                }
+            },
+            {
+                id: 23,
+                question: "It was very generous of him _____ a large portion of his salary to the local charity.",
+                options: [
+                    { key: "A", text: "donating" },
+                    { key: "B", text: "to donate" },
+                    { key: "C", text: "donate" },
+                    { key: "D", text: "to be donating" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Anh ấy thật hào phóng khi quyên góp một phần lớn tiền lương của mình cho tổ chức từ thiện địa phương.",
+                    step2: "A. donating; B. to donate; C. donate; D. to be donating.",
+                    step3: "Cấu trúc khen ngợi tính cách con người: It + be + adj + of somebody + to V (Ai đó thật như thế nào khi làm gì).",
+                    step4: "Loại A, C, D do không đáp ứng đúng công thức To-V của hệ tính từ chỉ phẩm chất con người."
+                }
+            },
+            {
+                id: 24,
+                question: "Would you mind _____ me a hand with these heavy crates? I can’t move them alone.",
+                options: [
+                    { key: "A", text: "to give" },
+                    { key: "B", text: "give" },
+                    { key: "C", text: "giving" },
+                    { key: "D", text: "to be giving" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Bạn có phiền giúp tôi một tay với những chiếc hòm nặng này không? Tôi không thể di chuyển chúng một mình.",
+                    step2: "A. to give; B. give; C. giving; D. to be giving.",
+                    step3: "Cấu trúc đề nghị lịch sự quen thuộc: Would you mind + V-ing? (Bạn có phiền làm việc gì đó không?).",
+                    step4: "Loại A, B, D vì vi phạm cấu trúc đi liền sau động từ 'mind'."
+                }
+            },
+            {
+                id: 25,
+                question: "If you happen _____ across any rare manuscripts at the auction, please let me know.",
+                options: [
+                    { key: "A", text: "to come" },
+                    { key: "B", text: "coming" },
+                    { key: "C", text: "come" },
+                    { key: "D", text: "to be coming" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Nếu bạn tình cờ bắt gặp bất kỳ bản thảo hiếm nào tại buổi đấu giá, xin vui lòng cho tôi biết.",
+                    step2: "A. to come; B. coming; C. come; D. to be coming.",
+                    step3: "Cấu trúc động từ chỉ sự tình cờ ngẫu nhiên: happen + to V (tình cờ làm gì hoặc xảy ra chuyện gì).",
+                    step4: "Loại B, C, D vì dùng sai dạng thức động từ đứng sau 'happen'."
+                }
+            },
+            {
+                id: 26,
+                question: "I dread _____ to think what would have happened if the paramedics hadn’t arrived.",
+                options: [
+                    { key: "A", text: "to begin" },
+                    { key: "B", text: "begin" },
+                    { key: "C", text: "beginning" },
+                    { key: "D", text: "to be beginning" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Tôi sợ khi phải bắt đầu nghĩ về những gì sẽ xảy ra nếu các nhân viên y tế không đến kịp.",
+                    step2: "A. to begin; B. begin; C. beginning; D. to be beginning.",
+                    step3: "Cấu trúc cụm từ tâm lý cố định: dread to think (sợ hãi khi nghĩ về điều gì, lo lắng về viễn cảnh tương lai). Theo sau thường là To-V.",
+                    step4: "Loại B, C, D do không tạo thành đúng thành ngữ thành thục 'dread to think'."
+                }
+            },
+            {
+                id: 27,
+                question: "She was the first woman _____ the prestigious award for her scientific research.",
+                options: [
+                    { key: "A", text: "receiving" },
+                    { key: "B", text: "to receive" },
+                    { key: "C", text: "receive" },
+                    { key: "D", text: "to be receiving" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Cô là người phụ nữ đầu tiên nhận được giải thưởng uy tín cho nghiên cứu khoa học của mình.",
+                    step2: "A. receiving; B. to receive; C. receive; D. to be receiving.",
+                    step3: "Quy tắc giản lược mệnh đề quan hệ: Khi danh từ đứng trước có các từ chỉ số thứ tự như 'the first', 'the second', 'the last',... ta dùng cụm 'To V' để thay thế.",
+                    step4: "Loại A vì dạng rút gọn V-ing chỉ áp dụng cho danh từ thông thường không chứa số thứ tự."
+                }
+            },
+            {
+                id: 28,
+                question: "Despite _____ heavily, the fans stayed until the end of the match.",
+                options: [
+                    { key: "A", text: "it rained" },
+                    { key: "B", text: "to rain" },
+                    { key: "C", text: "raining" },
+                    { key: "D", text: "rain" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Mặc dù trời mưa nặng hạt, các cổ động viên vẫn ở lại cho đến khi trận đấu kết thúc.",
+                    step2: "A. it rained (mệnh đề); B. to rain; C. raining (dạng danh động từ); D. rain.",
+                    step3: "Quy tắc liên từ chỉ sự tương phản: Despite + Noun / V-ing (mặc dù làm sao đó). Do đó động từ 'rain' đổi sang dạng danh động từ.",
+                    step4: "Loại A vì 'it rained' là mệnh đề đầy đủ, chỉ đi được sau liên từ 'Although / Even though'."
+                }
+            },
+            {
+                id: 29,
+                question: "I am not accustomed _____ in such a fast-paced and high-pressure environment.",
+                options: [
+                    { key: "A", text: "to work" },
+                    { key: "B", text: "working" },
+                    { key: "C", text: "to working" },
+                    { key: "D", text: "work" }
+                ],
+                options: [
+                    { key: "A", text: "to work" },
+                    { key: "B", text: "working" },
+                    { key: "C", text: "to working" },
+                    { key: "D", text: "work" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Tôi không quen làm việc trong một môi trường nhịp độ nhanh và áp lực cao như vậy.",
+                    step2: "A. to work; B. working; C. to working; D. work.",
+                    step3: "Cấu trúc tính từ đi kèm giới từ cố định: be accustomed to + V-ing / Noun (quen với việc làm gì đó). Từ 'to' ở đây là giới từ bắt buộc.",
+                    step4: "Loại A vì nhầm lẫn 'to' là động từ nguyên thể thay vì bản chất giới từ đi kèm V-ing."
+                }
+            },
+            {
+                id: 30,
+                question: "We are all looking forward to _____ the keynote speaker’s presentation.",
+                options: [
+                    { key: "A", text: "hear" },
+                    { key: "B", text: "to hear" },
+                    { key: "C", text: "hearing" },
+                    { key: "D", text: "to hearing" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Tất cả chúng tôi đều mong đợi được nghe bài thuyết trình của diễn giả chính.",
+                    step2: "A. hear; B. to hear; C. hearing; D. to hearing.",
+                    step3: "Cấu trúc cụm từ mong đợi phổ biến: look forward to + V-ing (háo hức, mong chờ điều gì). Chữ 'to' có sẵn trong đề bài đóng vai trò giới từ nên theo sau là V-ing.",
+                    step4: "Loại A, B, D vì không điền đúng dạng danh động từ sau giới từ 'to' của cấu trúc này."
+                }
+            },
+            {
+                id: 31,
+                question: "I have a vague recollection of _____ to that museum as a child, but I can’t remember any details.",
+                options: [
+                    { key: "A", text: "to be taken" },
+                    { key: "B", text: "being taken" },
+                    { key: "C", text: "taking" },
+                    { key: "D", text: "to take" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Tôi có một ký ức mơ hồ về việc được dẫn đến bảo tàng đó khi còn nhỏ, nhưng tôi không thể nhớ bất kỳ chi tiết nào.",
+                    step2: "A. to be taken; B. being taken (bị động danh động từ); C. taking (chủ động); D. to take.",
+                    step3: "Sau giới từ 'of' cần một V-ing. Kết hợp nghĩa bị động 'được dẫn đi/được đưa đi' trong quá khứ tuổi thơ nên dùng cấu trúc bị động 'being + V3/ed'.",
+                    step4: "Loại A, D vì dùng To-V sau giới từ. Loại C sai bản chất ý nghĩa chủ động."
+                }
+            },
+            {
+                id: 32,
+                question: "I would like _____ to the manager about the poor service we received.",
+                options: [
+                    { key: "A", text: "speaking" },
+                    { key: "B", text: "to be speaking" },
+                    { key: "C", text: "speak" },
+                    { key: "D", text: "to speak" }
+                ],
+                correct: "D",
+                explanation: {
+                    step1: "Tôi muốn nói chuyện với người quản lý về dịch vụ kém mà chúng tôi nhận được.",
+                    step2: "A. speaking; B. to be speaking; C. speak; D. to speak.",
+                    step3: "Cấu trúc bày tỏ mong muốn lịch sự: would like + to V (muốn làm điều gì đó).",
+                    step4: "Loại A, B, C vì không chia đúng dạng động từ theo công thức chuẩn của cụm 'would like'."
+                }
+            },
+            {
+                id: 33,
+                question: "There is no _____ what he might do if he finds out the truth.",
+                options: [
+                    { key: "A", text: "tell" },
+                    { key: "B", text: "to be telling" },
+                    { key: "C", text: "telling" },
+                    { key: "D", text: "to tell" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Không thể biết trước được anh ta có thể làm gì nếu biết được sự thật.",
+                    step2: "A. tell; B. to be telling; C. telling; D. to tell.",
+                    step3: "Cấu trúc thành ngữ phủ định đặc biệt: There is no + V-ing (Không thể nào / Không tài nào biết trước, làm được gì).",
+                    step4: "Loại A, B, D vì vi phạm công thức thành ngữ cố định chứa cấu trúc 'There is no'."
+                }
+            },
+            {
+                id: 34,
+                question: "She was too shocked _____ a single word when she heard the news.",
+                options: [
+                    { key: "A", text: "to say" },
+                    { key: "B", text: "to be saying" },
+                    { key: "C", text: "say" },
+                    { key: "D", text: "saying" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Cô ấy quá sốc để có thể nói một từ nào khi nghe tin tức.",
+                    step2: "A. to say; B. to be saying; C. say; D. saying.",
+                    step3: "Cấu trúc quá ... không thể làm gì: S + be + too + adj + to V.",
+                    step4: "Loại B, C, D vì lỗi cấu trúc hình thái động từ theo sau tính từ đi kèm từ 'too'."
+                }
+            },
+            {
+                id: 35,
+                question: "Many people look back on _____ in that city as the best years of their lives.",
+                options: [
+                    { key: "A", text: "live" },
+                    { key: "B", text: "living" },
+                    { key: "C", text: "to live" },
+                    { key: "D", text: "to be living" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Nhiều người nhìn lại quãng thời gian sống ở thành phố đó như là những năm tháng đẹp nhất cuộc đời họ.",
+                    step2: "A. live; B. living; C. to live; D. to be living.",
+                    step3: "Cụm động từ đi kèm giới từ: look back on + V-ing (nhìn lại, hoài niệm về việc gì trong quá khứ). Chữ 'on' là giới từ nên theo sau bắt buộc là danh động từ.",
+                    step4: "Loại A, C, D vì không dùng dạng V-ing đứng sau giới từ của cụm từ nhìn lại."
+                }
+            },
+            {
+                id: 36,
+                question: "I can’t help _____ that we are heading towards a major financial crisis if we don’t change our strategy.",
+                options: [
+                    { key: "A", text: "feeling" },
+                    { key: "B", text: "to feel" },
+                    { key: "C", text: "feel" },
+                    { key: "D", text: "to be feeling" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Tôi không thể không cảm thấy rằng chúng ta đang hướng tới một cuộc khủng hoảng tài chính lớn nếu không thay đổi chiến lược.",
+                    step2: "A. feeling; B. to feel; C. feel; D. to be feeling.",
+                    step3: "Cấu trúc thành ngữ cảm xúc: can't help + V-ing (không thể nhịn được, không thể không làm gì).",
+                    step4: "Loại B, C, D vì vi phạm cấu trúc đi liền sau cụm từ thành ngữ 'can't help'."
+                }
+            },
+            {
+                id: 37,
+                question: "The suspect finally admitted _____ the confidential files, but he denied selling them to competitors.",
+                options: [
+                    { key: "A", text: "to access" },
+                    { key: "B", text: "to accessing" },
+                    { key: "C", text: "to be accessing" },
+                    { key: "D", text: "to having accessed" }
+                ],
+                correct: "D",
+                explanation: {
+                    step1: "Nghi phạm cuối cùng thừa nhận đã truy cập các tệp bí mật, nhưng anh ta phủ nhận việc bán chúng cho các đối thủ cạnh tranh.",
+                    step2: "A. to access; B. to accessing; C. to be accessing; D. to having accessed (thừa nhận đã hoàn thành việc truy cập trong quá khứ).",
+                    step3: "Động từ 'admit + V-ing' hoặc 'admit + to V-ing'. Để nhấn mạnh hành động truy cập dữ liệu bảo mật đã xảy ra và hoàn tất trước thời điểm thừa nhận, cấu trúc hoàn thành danh động từ 'to having + V3/ed' là lựa chọn chuẩn xác nhất.",
+                    step4: "Loại A, B, C do chưa lột tả được mối tương quan thời gian hoàn tất trước của hành động xâm nhập file."
+                }
+            },
+            {
+                id: 38,
+                question: "The suspect finally admitted _____ the confidential files, but he denied selling them to competitors.",
+                options: [
+                    { key: "A", text: "to be hit" },
+                    { key: "B", text: "being hit" },
+                    { key: "C", text: "hitting" },
+                    { key: "D", text: "to hit" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Anh ta suýt chút nữa đã thoát khỏi việc bị văng trúng bởi giàn giáo rơi trong tai nạn công trường.",
+                    step2: "A. to be hit; B. being hit (bị động danh động từ); C. hitting (chủ động); D. to hit.",
+                    step3: "Cấu trúc động từ: escape + V-ing (thoát khỏi việc gì). Do mang ý nghĩa bị động 'bị giàn giáo rơi trúng' nên chuyển thành cấu trúc bị động 'being + V3/ed'.",
+                    step4: "Loại A, D vì dùng To-V. Loại C sai bản chất ý nghĩa chủ động."
+                }
+            },
+            {
+                id: 39,
+                question: "I really miss _____ in a small town where everyone knew each other’s names.",
+                options: [
+                    { key: "A", text: "live" },
+                    { key: "B", text: "to live" },
+                    { key: "C", text: "living" },
+                    { key: "D", text: "to be living" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Tôi thực sự nhớ việc sống ở một thị trấn nhỏ nơi mọi người đều biết tên nhau.",
+                    step2: "A. live; B. to live; C. living; D. to be living.",
+                    step3: "Cấu trúc động từ hoài niệm: miss + V-ing (nhớ, nhớ nhung việc đã từng làm trong quá khứ).",
+                    step4: "Loại A, B, D do lỗi áp dụng sai cấu trúc hình thái động từ theo sau 'miss'."
+                }
+            },
+            {
+                id: 40,
+                question: "The firm risks _____ its market dominance if it fails to innovate in the next few years.",
+                options: [
+                    { key: "A", text: "losing" },
+                    { key: "B", text: "lose" },
+                    { key: "C", text: "to lose" },
+                    { key: "D", text: "to be losing" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Công ty có nguy cơ mất đi vị thế thống trị thị trường nếu không đổi mới trong vài năm tới.",
+                    step2: "A. losing; B. lose; C. to lose; D. to be losing.",
+                    step3: "Cấu trúc động từ rủi ro: risk + V-ing (có nguy cơ, mạo hiểm làm việc gì đó).",
+                    step4: "Loại B, C, D vì không tuân thủ quy tắc chia động từ theo sau từ 'risk'."
+                }
+            },
+            {
+                id: 41,
+                question: "She had a lot of difficulty in _____ to the humid climate when she first moved to Southeast Asia.",
+                options: [
+                    { key: "A", text: "to adapt" },
+                    { key: "B", text: "adapt" },
+                    { key: "C", text: "to adapt" },
+                    { key: "D", text: "adapting" }
+                ],
+                correct: "D",
+                explanation: {
+                    step1: "Cô ấy gặp rất nhiều khó khăn trong việc thích nghi với khí hậu ẩm ướt khi mới chuyển đến Đông Nam Á.",
+                    step2: "A. to adapt; B. adapt; C. to adapt; D. adapting.",
+                    step3: "Cấu trúc danh từ chỉ sự khó khăn: have difficulty (in) + V-ing. Sau giới từ 'in' là một danh động từ.",
+                    step4: "Loại A, B, C vì sai cấu trúc ngữ pháp cơ bản đi sau cụm từ chỉ sự khó khăn."
+                }
+            },
+            {
+                id: 42,
+                question: "He was accused of _____ sensitive information to the press during the election campaign.",
+                options: [
+                    { key: "A", text: "leaking" },
+                    { key: "B", text: "to leak" },
+                    { key: "C", text: "leaking" },
+                    { key: "D", text: "having leaked" }
+                ],
+                correct: "D",
+                explanation: {
+                    step1: "Anh ta bị buộc tội rò rỉ thông tin nhạy cảm cho báo chí trong chiến dịch bầu cử.",
+                    step2: "A. leaking; B. to leak; C. leaking; D. having leaked (đã hoàn tất rò rỉ trước đó).",
+                    step3: "Cấu trúc bị động cáo buộc: be accused of + V-ing. Để nhấn mạnh hành động rò rỉ thông tin mật này đã xảy ra và hoàn thành xong trước thời điểm bị buộc tội, ta dùng cấu trúc hoàn thành danh động từ 'having + V3/ed'. Chọn D.",
+                    step4: "Loại B sai To-V. Loại A, C chưa lột tả chính xác tính trước sau về thời gian hoàn thành của hành động tội phạm."
+                }
+            },
+            {
+                id: 43,
+                question: "The new regulations don’t permit _____ in any public areas of the building, including the balcony.",
+                options: [
+                    { key: "A", text: "to be smoking" },
+                    { key: "B", text: "smoke" },
+                    { key: "C", text: "to smoke" },
+                    { key: "D", text: "smoking" }
+                ],
+                correct: "D",
+                explanation: {
+                    step1: "Các quy định mới không cho phép hút thuốc ở bất kỳ khu vực công cộng nào của tòa nhà, kể cả ban công.",
+                    step2: "A. to be smoking; B. smoke; C. to smoke; D. smoking (hành vi hút thuốc).",
+                    step3: "Cấu trúc quy định động từ: permit + V-ing (cho phép việc gì/hành vi gì nói chung khi không có tân ngữ chỉ người đứng giữa).",
+                    step4: "Loại C vì 'permit + somebody + to V' chỉ áp dụng khi có tân ngữ chỉ người cụ thể được cho phép."
+                }
+            },
+            {
+                id: 44,
+                question: "They are unlikely _____ the project on time unless they hire more staff.",
+                options: [
+                    { key: "A", text: "to finish" },
+                    { key: "B", text: "finish" },
+                    { key: "C", text: "to be finishing" },
+                    { key: "D", text: "finishing" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Họ không có khả năng hoàn thành dự án đúng hạn trừ khi họ thuê thêm nhân viên.",
+                    step2: "A. to finish; B. finish; C. to be finishing; D. finishing.",
+                    step3: "Cấu trúc khả năng của tính từ tương lai: be unlikely + to V (không có khả năng, khó lòng xảy ra việc gì).",
+                    step4: "Loại B, C, D do chia sai dạng thức của động từ theo sau tính từ 'unlikely'."
+                }
+            },
+            {
+                id: 45,
+                question: "He tried _____ the heavy door, but it was locked from the inside.",
+                options: [
+                    { key: "A", text: "to push" },
+                    { key: "B", text: "pushing" },
+                    { key: "C", text: "to be pushing" },
+                    { key: "D", text: "push" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Anh ấy đã cố gắng đẩy cánh cửa nặng nề, nhưng nó đã bị khóa từ bên trong.",
+                    step2: "A. to push (cố gắng nỗ lực); B. pushing (thử nghiệm phương pháp); C. to be pushing; D. push.",
+                    step3: "Cấu trúc: try + to V (cố gắng, nỗ lực vượt qua khó khăn để làm gì). Ngữ cảnh cửa nặng nề và bị khóa biểu thị sự nỗ lực sức lực.",
+                    step4: "Loại B vì 'try + V-ing' nghĩa là làm thử một việc xem kết quả ra sao, không phù hợp bối cảnh cánh cửa kẹt."
+                }
+            },
+            {
+                id: 46,
+                question: "She was fortunate enough _____ the accident with only minor injuries.",
+                options: [
+                    { key: "A", text: "survive" },
+                    { key: "B", text: "to be surviving" },
+                    { key: "C", text: "to survive" },
+                    { key: "D", text: "surviving" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Cô ấy đã đủ may mắn để sống sót sau vụ tai nạn với chỉ những vết thương nhẹ.",
+                    step2: "A. survive; B. to be surviving; C. to survive; D. surviving.",
+                    step3: "Cấu trúc cấu thành mức độ với trạng từ: adj + enough + to V (Đủ làm sao để làm điều gì đó).",
+                    step4: "Loại A, B, D vì vi phạm công thức bổ trợ động từ của cấu trúc 'enough'."
+                }
+            },
+            {
+                id: 47,
+                question: "I cannot afford _____ a new car right now, so I’ll keep using the old one.",
+                options: [
+                    { key: "A", text: "to buy" },
+                    { key: "B", text: "buying" },
+                    { key: "C", text: "buy" },
+                    { key: "D", text: "to be buying" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Tôi không đủ khả năng tài chính để mua một chiếc ô tô mới lúc này, vì vậy tôi sẽ tiếp tục dùng chiếc cũ.",
+                    step2: "A. to buy; B. buying; C. buy; D. to be buying.",
+                    step3: "Cấu trúc khả năng tài chính: afford + to V (có đủ khả năng chi trả tiền bạc/thời gian để làm gì).",
+                    step4: "Loại B, C, D vì không chia đúng dạng thức To-V theo sau động từ quy định 'afford'."
+                }
+            },
+            {
+                id: 48,
+                question: "We need to figure out how _____ the costs without losing quality.",
+                options: [
+                    { key: "A", text: "to reduce" },
+                    { key: "B", text: "to be reducing" },
+                    { key: "C", text: "reduce" },
+                    { key: "D", text: "reducing" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Chúng ta cần tìm cách cắt giảm chi phí mà không làm giảm chất lượng.",
+                    step2: "A. to reduce; B. to be reducing; C. reduce; D. reducing.",
+                    step3: "Cấu trúc từ nghi vấn nghi vấn rút gọn: Wh-question (how, what, where...) + to V.",
+                    step4: "Loại B, C, D vì lỗi cấu trúc hình thái của động từ đứng sau đại từ nghi vấn chỉ cách thức 'how'."
+                }
+            },
+            {
+                id: 49,
+                question: "The manager put off _____ the final decision until he had consulted with the legal department.",
+                options: [
+                    { key: "A", text: "to make" },
+                    { key: "B", text: "make" },
+                    { key: "C", text: "making" },
+                    { key: "D", text: "to be making" }
+                ],
+                correct: "C",
+                explanation: {
+                    step1: "Người quản lý đã trì hoãn việc đưa ra quyết định cuối cùng cho đến khi ông tham khảo ý kiến của bộ phận pháp lý.",
+                    step2: "A. to make; B. make; C. making; D. to be making.",
+                    step3: "Cấu trúc cụm động từ trì hoãn: put off (tương đương postpone/delay) + V-ing (trì hoãn việc làm gì đó).",
+                    step4: "Loại A, B, D vì sai nguyên tắc chia dạng thức danh động từ theo sau cụm từ 'put off'."
+                }
+            },
+            {
+                id: 50,
+                question: "The CEO regretted _____ the shareholders that the company was on the brink of bankruptcy, but he later regretted _____ the truth so bluntly, as it caused a massive sell-off.",
+                options: [
+                    { key: "A", text: "informing / to have told" },
+                    { key: "B", text: "to inform / having told" },
+                    { key: "C", text: "to inform / to tell" },
+                    { key: "D", text: "informing / telling" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "CEO rất tiếc khi phải thông báo với các cổ đông rằng công ty đang trên bờ vực phá sản, nhưng sau đó ông lại hối hận vì đã nói sự thật quá thẳng thừng, vì nó gây ra một đợt bán tháo ồ ạt.",
+                    step2: "A. làm tiếc đã báo / hối hận phải nói; B. lấy làm tiếc phải báo tin xấu (to inform) / hối hận vì đã làm việc nói thật trong quá khứ (having told); C. tiếc phải báo / tiếc phải nói; D. tiếc đã báo / tiếc đã nói.",
+                    step3: "Vị trí thứ nhất dùng 'regret + to V' vì thông báo một tin xấu chuẩn bị phát ngôn. Vị trí thứ hai dùng 'regret + V-ing / having V3' vì diễn tả tâm lý hối hận sâu sắc về một sai lầm đã thực hiện trước đó trong quá khứ.",
+                    step4: "Các phương án A, C, D đảo lộn sai chức năng bản chất ngữ pháp kép vô cùng đặc thù của động từ 'regret'."
+                }
+            }
+        ];
+
+        let userAnswers = {};
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) audioCtx = new AudioCtx();
+        }
+
+        function playSound(type) {
+            try {
+                initAudio();
+                if (!audioCtx) return;
+                const now = audioCtx.currentTime;
+                if (type === 'correct') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.setValueAtTime(659.25, now + 0.1);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.4);
+                } else {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(180, now);
+                    osc.frequency.linearRampToValueAtTime(120, now + 0.3);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.4);
+                }
+            } catch(e) {}
+        }
+
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        let confettiParticles = [];
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function triggerConfetti() {
+            confettiParticles = [];
+            const colors = ['#8854C0', '#FDCB6E', '#00C9A7', '#FF7675', '#00D26A'];
+            for(let i=0; i<60; i++) {
+                confettiParticles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 7 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speedX: Math.random() * 4 - 2,
+                    speedY: Math.random() * 4 + 4,
+                    rotation: Math.random() * 360,
+                    rotationSpeed: Math.random() * 4 - 2
+                });
+            }
+            animateConfetti();
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            let active = false;
+            confettiParticles.forEach(p => {
+                p.y += p.speedY;
+                p.x += p.speedX;
+                p.rotation += p.rotationSpeed;
+                if (p.y < canvas.height) active = true;
+                
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation * Math.PI / 180);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+                ctx.restore();
+            });
+            if (active) requestAnimationFrame(animateConfetti);
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = "";
+
+            quizData.forEach((q, index) => {
+                const card = document.createElement('div');
+                card.className = "card";
+                card.id = `card-${q.id}`;
+
+                let html = `<div class="question-text"><strong>Câu ${index + 1}:</strong> ${q.question}</div>`;
+                
+                let shuffledOptions = [...q.options];
+                shuffleArray(shuffledOptions);
+
+                html += `<div class="options-container">`;
+                shuffledOptions.forEach(opt => {
+                    html += `
+                        <button class="option-btn" id="opt-${q.id}-${opt.key}" onclick="checkAnswer(${q.id}, '${opt.key}', '${q.correct}')">
+                            ${opt.text}
+                        </button>
+                    `;
+                });
+                html += `</div>`;
+
+                html += `
+                    <div class="explanation-box" id="explain-${q.id}">
+                        <div class="explanation-title">🌟 GIẢI THÍCH CHI TIẾT TỪ MS LÊ HẰNG:</div>
+                        <div class="explanation-step"><strong>Bước 1 - Dịch nghĩa câu:</strong> ${q.explanation.step1}</div>
+                        <div class="explanation-step"><strong>Bước 2 - Ý nghĩa các đáp án:</strong> ${q.explanation.step2}</div>
+                        <div class="explanation-step"><strong>Bước 3 - Tại sao đáp án này ĐÚNG:</strong> ${q.explanation.step3}</div>
+                        <div class="explanation-step"><strong>Bước 4 - Tại sao các đáp án khác SAI:</strong> ${q.explanation.step4}</div>
+                    </div>
+                `;
+
+                card.innerHTML = html;
+                container.appendChild(card);
+            });
+        }
+
+        function checkAnswer(questionId, selectedKey, correctKey) {
+            if (userAnswers[questionId] !== undefined) return;
+
+            userAnswers[questionId] = (selectedKey === correctKey);
+            const card = document.getElementById(`card-${questionId}`);
+            const selectedBtn = document.getElementById(`opt-${questionId}-${selectedKey}`);
+            const correctBtn = document.getElementById(`opt-${questionId}-${correctKey}`);
+
+            if (selectedKey === correctKey) {
+                if (selectedBtn) selectedBtn.classList.add('correct');
+                playSound('correct');
+                triggerConfetti();
+            } else {
+                if (selectedBtn) selectedBtn.classList.add('wrong');
+                if (correctBtn) correctBtn.classList.add('correct');
+                card.classList.add('shake-animation');
+                playSound('wrong');
+                setTimeout(() => { card.classList.remove('shake-animation'); }, 500);
+            }
+
+            document.getElementById(`explain-${questionId}`).style.display = "block";
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+            const totalQuestions = quizData.length;
+
+            quizData.forEach(q => {
+                if (userAnswers[q.id] === true) correctCount++;
+            });
+
+            const scorePercentage = (correctCount / totalQuestions) * 100;
+            let comment = "";
+
+            if (scorePercentage < 50) {
+                comment = "Điểm lần này chưa cao lắm, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!";
+            } else if (scorePercentage >= 60 && scorePercentage <= 80) {
+                comment = "Con đã có tiến bộ khá ổn rồi, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!";
+            } else if (scorePercentage >= 90) {
+                comment = "Làm tốt lắm, con cố gắng ring điểm 10 ở lần sau nha!";
+            } else {
+                comment = "Con đã có sự tiến bộ rất cố gắng rồi, đọc kỹ lại các câu sai để học cấu trúc mới con nhé!";
+            }
+
+            document.getElementById('modal-score-text').innerText = `${correctCount} / ${totalQuestions}`;
+            document.getElementById('modal-comment-text').innerText = comment;
+            document.getElementById('result-modal').style.display = "flex";
+            
+            if (scorePercentage >= 60) triggerConfetti();
+        }
+
+        function closeModal() {
+            document.getElementById('result-modal').style.display = "none";
+        }
+
+        window.onload = renderQuiz;
+    </script>
+</body>
+</html>
